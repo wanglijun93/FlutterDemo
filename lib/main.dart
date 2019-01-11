@@ -34,11 +34,12 @@ class RandomWordsState extends State<RandomWords> {
 
   @override
   Widget build(BuildContext context) {
-//    var wordPair = new WordPair.random();
-//    return new Text(wordPair.asUpperCase);
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('英语单词'),
+        actions: <Widget>[
+          new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
+        ],
       ),
       body: _buildSuggestions(),
     );
@@ -78,6 +79,32 @@ class RandomWordsState extends State<RandomWords> {
           }
         });
       },
+    );
+  }
+
+  //点击事件
+  void _pushSaved() {
+    Navigator.of(context).push(
+      new MaterialPageRoute(
+        builder: (context) {
+          final tiles = _saved.map((pair) {
+            return new ListTile(
+              title: new Text(
+                pair.asPascalCase,
+                style: _biggerFont,
+              ),
+            );
+          });
+          final divided =
+              ListTile.divideTiles(context: context, tiles: tiles).toList();
+          return new Scaffold(
+            appBar: new AppBar(
+              title: new Text('保存的单词'),
+            ),
+            body: new ListView(children: divided),
+          );
+        },
+      ),
     );
   }
 }
