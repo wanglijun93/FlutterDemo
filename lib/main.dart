@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_demo1/ArticleListScreen.dart';
+import 'package:flutter_demo1/Test1.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,15 +15,16 @@ class MyApp extends StatelessWidget {
 //          title: new Text('welcome to flutter'),
 //        ),
 //        body: new Center(
-////          child: new Text('hello flutter'),
-//          child: new RandomWords(),
+//          child: new Text('hello flutter'),
 //        ),
 //      ),
-      home: new RandomWords(),
+//      home: new RandomWords(),
+      home: new ArticleListScreen(),
     );
   }
 }
 
+//ListView的列表
 class RandomWords extends StatefulWidget {
   @override
   createState() => new RandomWordsState();
@@ -106,5 +109,11 @@ class RandomWordsState extends State<RandomWords> {
         },
       ),
     );
+  }
+
+  String sayHello(String name) {
+    print(name);
+    StringBuffer stringBuffer = new StringBuffer();
+    stringBuffer.write("nihao");
   }
 }
