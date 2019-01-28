@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Article.dart';
 
+//路由练习的listView
 class ArticleListScreen extends StatelessWidget {
   final List<Article> article = new List.generate(
     10,
